@@ -1,0 +1,44 @@
+<template>
+  <require from="./feedback-list.scss"></require>
+  <require from="./feedback-item"></require>
+  <require from="resources/elements/filter-input/filter-input"></require>
+
+  <div class="app__page feedback-list-page">
+    <div class="app__content">
+      
+      <!-- Content header -->
+      <div class="app__content-header">
+        <div class="flex-row">
+          <div class="list-grid__filter flex-ww-2">
+            <filter-input value.bind="searchTerm" placeholder.bind="'Search here!'"></filter-input>
+          </div>
+    
+          <div class="flex-ww-4">
+            <label repeat.for="rating of ratingValues" class="rating-checkbox">
+              <input type="checkbox" class="checkbox__input" model.bind="rating" checked.bind="ratingSelected">
+              <div class="checkbox">${rating}</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content body -->
+      <div class="app__content-body">
+        <div class="list-grid">
+          <div class="list-grid__header border border--bottom-off border--top-off">
+            <div class="list-grid__column flex-ww-2 text-align-center">Rating</div>
+            <div class="list-grid__column flex-ww-4">Comment</div>
+            <div class="list-grid__column flex-ww-2 text-align-center">Browser</div>
+            <div class="list-grid__column flex-ww-2 text-align-center">Device</div>
+            <div class="list-grid__column flex-ww-2 text-align-center">Platform</div>
+          </div>
+      
+          <div class="list-grid__body"><feedback-item repeat.for="item of feedbackList | filter:ratingTerm:filterRatingFunc | filter:searchTerm:filterCommentFunc"
+              feedback.bind="item" 
+              class="list-grid__item"></feedback-item></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

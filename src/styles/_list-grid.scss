@@ -1,0 +1,74 @@
+@import "vars";
+
+.list-grid {
+  border-radius: $list-grid__radius;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  border: 1px solid $border;
+  border-left: none;
+  border-right: none;
+  max-height: 100%;
+}
+
+.list-grid__header {
+  display: flex;
+  border: none;
+  flex: 0 0 auto;
+  background-color: #59636c;
+
+  &:first-child {
+    border-top-left-radius: $list-grid__radius;
+    border-top-right-radius: $list-grid__radius;
+  }
+
+  .list-grid__column {
+    color: #ffffff;
+    font-size: 12px;
+    padding: 15px;
+  }
+}
+
+.list-grid__header,
+.list-grid__item {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.list-grid__body {
+  position: relative;
+  min-height: 5rem;
+  padding-left: 0;
+  padding-right: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // No results placeholder
+  &:empty {
+    border-left: 1px solid $border !important;
+    border-right: 1px solid $border !important;
+    // No results message
+    &:after {
+      display: flex;
+      content: 'No results';
+      color: #ccc;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      align-items: center;
+      justify-content: center;
+      font-style: italic;
+    }
+    // Hide children
+    > * {
+      display: none;
+    }
+  }
+}

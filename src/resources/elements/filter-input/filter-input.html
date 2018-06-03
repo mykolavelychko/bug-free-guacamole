@@ -1,0 +1,9 @@
+<template bindable="placeholder,value">
+  <require from="./filter-input.scss"></require>
+  
+  <div class="c-filter-input">
+    <input type="text" class="c-filter-input__input" value.bind="value" placeholder="${placeholder || 'Filter...'}"/>
+    <span class="c-filter-input__clear" if.bind="value" click.delegate="value =''"></span>
+  </div>
+  </div>
+</template>

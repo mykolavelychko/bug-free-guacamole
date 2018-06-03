@@ -1,0 +1,28 @@
+<template>
+  <require from="./feedback-item.scss"></require>
+  
+  <div class="feedback-item flex-container">
+    <div class="row-item flex-row">
+      <div class="list-grid__column flex-ww-2">
+        <div class="text-align-center">
+          <div class="rating">${feedback.rating | emptyValueFormat}</div>
+        </div>
+      </div>
+      <div class="list-grid__column flex-ww-4">
+        <div class="text-two-line">${feedback.comment | emptyValueFormat}</div>
+      </div>
+      <div class="list-grid__column flex-ww-2">
+        <div class="text-align-center">${feedback.browser.appCodeName | emptyValueFormat}</div>
+      </div>
+      <div class="list-grid__column flex-ww-2">
+        <div class="text-align-center">${feedback.device | emptyValueFormat}</div>
+      </div>
+      <div class="list-grid__column flex-ww-2">
+        <div class="text-align-center">${feedback.computed_browser.Platform | emptyValueFormat}</div>
+      </div>
+    </div>
+  </div>
+  
+</template>
+
+
