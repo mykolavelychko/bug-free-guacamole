@@ -1,0 +1,74 @@
+.flex-container {
+  padding: 0 15px;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.flex-ww-1, .flex-ww-2, .flex-ww-3, .flex-ww-4,
+.flex-ww-5, .flex-ww-6, .flex-ww-7, .flex-ww-8,
+.flex-ww-9, .flex-ww-10, .flex-ww-11, .flex-ww-12 {
+  flex: 1 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &, & > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.flex-ww-1 {
+  flex-basis: 8.33333333%;
+  max-width: 8.33333333%;
+}
+.flex-ww-2 {
+  flex-basis: 16.66666667%;
+  max-width: 16.66666667%;
+}
+.flex-ww-3 {
+  flex-basis: 25%;
+  max-width: 25%;
+}
+.flex-ww-4 {
+  flex-basis: 33.33333333%;
+  max-width: 33.33333333%;
+}
+.flex-ww-5 {
+  flex-basis: 41.66666667%;
+  max-width: 41.66666667%;
+}
+.flex-ww-6 {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+.flex-ww-7 {
+  flex-basis: 58.33333333%;
+  max-width: 58.33333333%;
+}
+.flex-ww-8 {
+  flex-basis: 66.66666667%;
+  max-width: 66.66666667%;
+}
+.flex-ww-9 {
+  flex-basis: 75%;
+  max-width: 75%;
+}
+.flex-ww-10 {
+  flex-basis: 83.33333333%;
+  max-width: 83.33333333%;
+}
+.flex-ww-11 {
+  flex-basis: 91.66666667%;
+  max-width: 91.66666667%;
+}
+.flex-ww-12 {
+  flex-basis: 100%;
+  max-width: 100%;
+}

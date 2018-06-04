@@ -1,0 +1,24 @@
+.expand-arrow {
+  width: 20px;
+  height: 20px;
+}
+
+.expand-arrow__icon {
+  width: 11px;
+  height: 100%;
+  margin: 0 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.expand-arrow__icon {
+  background-image: url(~styles/img/arrow_right.svg);
+  background-size: 7px 11px;
+}
+
+.expand-arrow--expanded {
+  .expand-arrow__icon {
+    background-image: url(~styles/img/arrow.svg);
+    background-size: 11px 7px;
+  }
+}

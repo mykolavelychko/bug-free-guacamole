@@ -1,4 +1,4 @@
-import { autoinject } from "aurelia-framework";
+import { autoinject, observable } from "aurelia-framework";
 import { BindingEngine } from "aurelia-binding";
 import { FeedbackAPI } from "api/feedback-api";
 
@@ -8,7 +8,10 @@ export class FeedbackList {
   private ratingSelected: any[] = [];
   private ratingTerm: string;
   private feedbackList: any[];
+  expandedItems: boolean[] = [];
 
+  @observable
+  private searchTerm: string = "";
 
   private ratingFilterChangedSubscription;
 
@@ -36,6 +39,11 @@ export class FeedbackList {
 
   ratingSelectedChanged() {
     this.ratingTerm = this.ratingSelected.join(",");
+    this.closeExpandedItems();
+  }
+
+  searchTermChanged() {
+    this.closeExpandedItems();
   }
 
   filterCommentFunc(searchTerm, feedback) {
@@ -56,5 +64,9 @@ export class FeedbackList {
 
   private loadFeedbacks() {
     this.feedbackAPI.getList().then(result => this.feedbackList = result.items);
+  }
+
+  private closeExpandedItems() {
+    this.expandedItems = this.expandedItems.map(_ => _ = false);
   }
 }

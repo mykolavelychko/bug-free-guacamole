@@ -1,8 +1,15 @@
 <template>
   <require from="./feedback-item.scss"></require>
+  <require from="resources/elements/expand-arrow/expand-arrow.html"></require>
   
-  <div class="feedback-item flex-container">
-    <div class="row-item flex-row">
+  <div class="feedback-item 
+    expandable-list__item
+    expandable-list__item--selectable
+    ${expanded ? 'expandable-list__item--selected' : ''}
+    flex-container">
+    
+    <div class="expandable-list__item--collapsed row-item flex-row" click.delegate="expanded = !expanded">
+      <expand-arrow class="expandable-list__arrow expand-arrow--primary ${expanded ? 'expand-arrow--expanded' : ''}"></expand-arrow>
       <div class="list-grid__column flex-ww-2">
         <div class="text-align-center">
           <div class="rating">${feedback.rating | emptyValueFormat}</div>
@@ -12,13 +19,59 @@
         <div class="text-two-line">${feedback.comment | emptyValueFormat}</div>
       </div>
       <div class="list-grid__column flex-ww-2">
-        <div class="text-align-center">${feedback.browser.appCodeName | emptyValueFormat}</div>
+        <div class="text-align-center">
+          ${feedback.computed_browser.Browser | emptyValueFormat}
+          <br>
+          ${feedback.computed_browser.Version | emptyValueFormat}
+        </div>
       </div>
       <div class="list-grid__column flex-ww-2">
         <div class="text-align-center">${feedback.device | emptyValueFormat}</div>
       </div>
       <div class="list-grid__column flex-ww-2">
         <div class="text-align-center">${feedback.computed_browser.Platform | emptyValueFormat}</div>
+      </div>
+    </div>
+
+    <div if.bind="expanded" class="expandable-list__item--expanded">
+      <div class="expandable-list__item-separator"></div>
+      <div class="expandable-list__item-content">
+          <div class="flex-row expandable-list__row">
+            <div class="flex-ww-12">
+              <div class="feedback-item__subtitle">Comment</div>
+              <div class="feedback-item__infobox">${feedback.comment | emptyValueFormat}</div>
+            </div>
+          </div>
+
+          <div class="flex-row expandable-list__row">
+            <div class="flex-ww-6">
+              <div class="feedback-item__subtitle">Additional information</div>
+              <div class="feedback-item__infobox">
+                <div class="flex-row">
+                  <div class="flex-ww-4">Email</div>
+                  <div class="flex-ww-8">${feedback.email | emptyValueFormat}</div>
+                </div>
+                <div class="flex-row">
+                  <div class="flex-ww-4">Labels</div>
+                  <div class="flex-ww-8">${feedback.labels}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-ww-6">
+              <div class="feedback-item__subtitle">Geo information</div>
+              <div class="feedback-item__infobox">
+                <div class="flex-row">
+                  <div class="flex-ww-4">Country</div>
+                  <div class="flex-ww-8">${feedback.geo.country | emptyValueFormat}</div>
+                </div>
+                <div class="flex-row">
+                  <div class="flex-ww-4">City</div>
+                  <div class="flex-ww-8">${feedback.geo.city | emptyValueFormat}</div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

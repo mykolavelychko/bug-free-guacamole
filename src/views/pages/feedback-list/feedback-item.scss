@@ -1,39 +1,41 @@
 @import "~styles/vars";
 
 .feedback-item {
-  .row-item {
-    height: 50px;
-    border: 1px solid $border;
-    border-bottom: none;
+  .list-grid__column {
+    min-height: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 15px;
+    padding-right: 9px;
+    align-items: center;
+    display: flex;
 
-    .list-grid__column {
-      min-height: inherit;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding-left: 15px;
-      padding-right: 9px;
-      align-items: center;
-      display: flex;
+    .rating {
+      margin: auto;
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: #ffffff;
+      background-color: $rating;
+      line-height: 30px;
+      font-size: 18px;
+    }
 
-      .rating {
-        margin: auto;
-        display: block;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        color: #ffffff;
-        background-color: $rating;
-        line-height: 30px;
-        font-size: 18px;
-      }
-
-      .text-two-line {
-        white-space: normal;
-        line-height: 25px;
-        max-height: 50px;
-      }
+    .text-two-line {
+      white-space: normal;
+      line-height: 25px;
+      max-height: 50px;
     }
   }
+}
 
-  
+.feedback-item__infobox {
+  color: #999999;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.feedback-item__subtitle {
+  margin-bottom: 2px;
 }

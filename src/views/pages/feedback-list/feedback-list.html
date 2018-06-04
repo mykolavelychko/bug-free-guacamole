@@ -34,7 +34,8 @@
           </div>
       
           <div class="list-grid__body"><feedback-item repeat.for="item of feedbackList | filter:ratingTerm:filterRatingFunc | filter:searchTerm:filterCommentFunc"
-              feedback.bind="item" 
+              feedback.bind="item"
+              expanded.bind="expandedItems[$index]" 
               class="list-grid__item"></feedback-item></div>
         </div>
       </div>
