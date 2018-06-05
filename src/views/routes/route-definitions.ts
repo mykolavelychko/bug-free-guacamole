@@ -30,13 +30,6 @@ export class RouteDefinitions {
         moduleId: PLATFORM.moduleName("views/pages/feedback-list/feedback-list"),
         nav: true,
         title: "Feedback list"
-      },
-      {
-        name: "feedback",
-        route: "feedback",
-        moduleId: PLATFORM.moduleName("views/pages/feedback/feedback"),
-        nav: true,
-        title: "Feedback"
       }
     ];
   }

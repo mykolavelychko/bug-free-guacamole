@@ -1,5 +1,5 @@
-import {autoinject} from "aurelia-framework";
-import {HttpClient} from "aurelia-fetch-client";
+import { autoinject } from "aurelia-framework";
+import { HttpClient } from "aurelia-fetch-client";
 
 const isJson = response => response.headers && response.headers.has
   && response.headers.has("Content-Type")
